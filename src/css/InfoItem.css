@@ -1,0 +1,35 @@
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 5px;
+    
+}
+
+.cont{
+    font-size: 1rem;
+    white-space: pre-wrap;
+}
+.tags{
+    white-space:pre-wrap;
+}
+.tag{
+    border: 1px solid #aaa;
+    border-radius: 20%;
+    font-size: 1.0rem;
+    color:#aaa;
+    margin: 2px;
+    padding: 2px;
+    text-decoration: none;
+}
+
+.tag-sm{
+    border: 1px solid #aaa;
+    border-radius: 20%;
+    font-size: 0.7rem;
+    color: #aaa;
+    background-color: transparent;
+    margin: 2px;
+    padding: 2px;
+    text-decoration: none;
+}
+
