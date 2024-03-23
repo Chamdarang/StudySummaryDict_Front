@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/InfoItem.css";
+import "../css/InfoItem.scss";
 import {  Link, useNavigate, useParams } from "react-router-dom";
 import { Form,Field, Formik } from "formik";
 

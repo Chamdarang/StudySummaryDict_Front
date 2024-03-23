@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import "../css/InfoItem.css"
+import "../css/InfoItem.scss"
 import { infoDeleteApi, infoModifyApi, searchApi } from "../api/SearchApiService";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../security/AuthContext";
@@ -120,13 +120,13 @@ export default function InfoListComponent(){
     }
     return (
         <>
-        <ul className="list-group mx-auto w-50"> 
+        <ul className="list-group mx-auto custom-w-50"> 
         {isAuth&&
             <span className="list-group-item border m-2">
             <label></label>
             <form className="row">
                 <input type="hidden" value={id}/>
-                <div className="col">
+                <div className="col-10 col-sm">
                     <input className="form-control mt-1" type="text" placeholder="Name" value={name} onChange={handleNameChange}  required/>
                     <textarea className="form-control mt-1" value={simpleInfo} onChange={handleSimpleInfoChange} placeholder="Information" required/>
                     <div className="tags form-control mt-1">
@@ -147,13 +147,12 @@ export default function InfoListComponent(){
                     info=>(
                         <li key={info.id} className="list-group-item border m-2 ">
                             <div className="row">
-                                <div className="col">
-                                    <div className="col title d-flex">
+                                <div className="col-10 col-sm">
+                                    <div className="fs-4 fw-bold mb-1">
                                         <span>{info.name}</span>
                                     </div>
-                                    <div className="cont">{info.simpleInfo}</div>
-                                
-                                    <div className="tags">
+                                    <div className="text-pre">{info.simpleInfo}</div>
+                                    <div className="text-pre">
                                         {info.tag.map(
                                             (tag,idx)=>(
                                                 <button type="button" className="tag-sm" key={tag} value={tag} >{tag}</button>

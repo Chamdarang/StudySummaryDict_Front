@@ -1,9 +1,12 @@
 import "./App.css"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import InfoListComponent from './components/InfoListComponent';
-import HeaderComponent from './components/HeaderComponent';
 import InfoDetailComponent from "./components/InfoDetailComponent";
+import HeaderComponent from "./components/HeaderComponent";
+import HomeComponent from "./components/HomeComponent";
 import AuthProvider from "./security/AuthContext";
+
+
 
 function App() {
   return (
@@ -11,7 +14,7 @@ function App() {
         <BrowserRouter>
           <HeaderComponent/>
             <Routes>
-              <Route path="/l" element={
+              <Route path="/" element={
                 <InfoListComponent/>
               }></Route>
               <Route path="/d/:id" element={

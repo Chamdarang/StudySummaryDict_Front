@@ -1,15 +1,7 @@
-.title{
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding-bottom: 5px;
-    
-}
-
-.cont{
-    font-size: 1rem;
-    white-space: pre-wrap;
-}
-.tags{
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+.text-pre{
     white-space:pre-wrap;
 }
 .tag{
@@ -32,4 +24,13 @@
     padding: 2px;
     text-decoration: none;
 }
+.custom-w-50 {
+    width: 50%;
+}
+@include media-breakpoint-down(sm) {
+    .custom-w-50 {
+        width: 100%;
+    }
+}
+
 
