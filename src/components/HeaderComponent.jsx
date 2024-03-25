@@ -1,6 +1,8 @@
 import { useState } from "react";
-import {useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../security/AuthContext";
+import "../css/InfoItem.scss"
+
 
 export default function HeaderComponent(){
     const nav= useNavigate()
@@ -25,8 +27,10 @@ export default function HeaderComponent(){
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <span className="h3">Study Summary Dictionary</span>
-                            
+                        <Link to="/" className="h3 custom-visible" style={{textDecoration: "none"}}>Study Summary Dictionary</Link>
+                        <Link to="/" className="h3 custom-visible-sm" style={{textDecoration: "none"}}>SSD</Link>
+                        <Link to="/l" className="h6 ps-2" style={{textDecoration: "none"}}>Dict</Link>
+                        <Link to="/d" className="h6 ps-2" style={{textDecoration: "none"}}>Doc</Link>
                     </div>
                     <div className="col">
                         <form className="w-100" onSubmit={handleSubmit}>

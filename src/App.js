@@ -14,7 +14,10 @@ function App() {
         <BrowserRouter>
           <HeaderComponent/>
             <Routes>
-              <Route path="/" element={
+            <Route path="/" element={
+                <HomeComponent/>
+              }></Route>
+              <Route path="/l" element={
                 <InfoListComponent/>
               }></Route>
               <Route path="/d/:id" element={

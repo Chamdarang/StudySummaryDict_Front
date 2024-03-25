@@ -27,10 +27,19 @@
 .custom-w-50 {
     width: 50%;
 }
+.custom-visible-sm{
+    display: none;
+}
 @include media-breakpoint-down(sm) {
     .custom-w-50 {
         width: 100%;
     }
+    .custom-visible{
+        display: none;
+        visibility: invisible;
+    }
+    .custom-visible-sm{
+        visibility: visible;
+        display: inline;
+    }
 }
-
-
