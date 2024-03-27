@@ -38,6 +38,7 @@ export default function DocListComponent(){
     return (
         <>
         <ul className="list-group mx-auto custom-w-50"> 
+            {isAuth&&<Link className="btn btn-sm btn-outline-primary m-1" to="/d/e">글쓰기</Link>}
             {
                 doc.map(
                     doc=>(
