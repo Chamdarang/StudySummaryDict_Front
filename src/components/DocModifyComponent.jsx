@@ -52,7 +52,7 @@ export default function DocModifyComponent(){
                     <textarea className="form-control mt-1" style={{height:"80vh"}} value={content} onChange={handleContentChange} placeholder="Information" required/>
                 </div>
                 <div className="col-1">
-                    <button type="submit" className="btn btn-sm btn-outline-primary m-1" onClick={handleSubmit}>작성</button>
+                    <button type="submit" className="btn btn-sm btn-outline-primary m-1" onClick={handleSubmit}>{id?"수정":"작성"}</button>
                     <button type="button" className="btn btn-sm btn-outline-primary m-1" onClick={delDoc}>삭제</button>
                 </div>
             </form>
