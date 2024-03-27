@@ -32,7 +32,7 @@ export default function HomeComponent(){
                     (quizItem,idx)=>(
                         <span className={quizItem.correct==1?"border-success mb-2 form-control":quizItem.correct==-1?"border-danger mb-2 form-control ":"mb-2 form-control"} key={idx}>
                         <input name={idx} type="text" className="border " placeholder={"○".repeat(quizItem.name.length)} onKeyUp={judgeQuiz} readOnly={quizItem.correct==1?true:false}  />
-                        <div>{quizItem.simpleInfo}</div>
+                        <div className="text-pre" >{quizItem.simpleInfo}</div>
                         </span>
                     )
                 )}

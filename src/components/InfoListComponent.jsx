@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "../css/InfoItem.scss"
-import { infoDeleteApi, infoModifyApi, searchApi } from "../api/SearchApiService";
+import { infoDeleteApi, infoModifyApi, infoSearchApi } from "../api/SearchApiService";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../security/AuthContext";
 export default function InfoListComponent(){
@@ -28,7 +28,7 @@ export default function InfoListComponent(){
         if (param) {
         stringified = decodeURIComponent(new URLSearchParams(param).get("query"));
         }
-        const req = searchApi(stringified,page,size);
+        const req = infoSearchApi(stringified,page,size);
         req.then(response=>{
             console.log(response.data.data)
             setInfo(response.data.data.infoList)
