@@ -13,7 +13,7 @@ export default function DocDetailComponent() {
   const [content, setContent] = useState("");
   const authContext=useAuth()
   const isAuth=authContext.isAuth
-  useEffect(() => initDocDetail, []);
+  useEffect(() => initDocDetail(), []);
   function initDocDetail() {
     console.log(id);
     docViewApi(id)

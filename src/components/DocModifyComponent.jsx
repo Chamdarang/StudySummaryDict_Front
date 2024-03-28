@@ -9,7 +9,7 @@ export default function DocModifyComponent(){
     const [content,setContent]=useState("")
     const nav=useNavigate()
     
-    useEffect(()=>initDocDetail,[])
+    useEffect(()=>initDocDetail(),[])
     function initDocDetail(){
         if (id) {
             console.log(id)

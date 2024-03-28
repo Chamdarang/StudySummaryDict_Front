@@ -14,8 +14,8 @@ export default function DocListComponent(){
     const param=useLocation().search
     const authContext=useAuth()
     const isAuth=authContext.isAuth
-    useEffect(()=>searchInfo(),[page])
-    function searchInfo(){
+    useEffect(()=>searchDoc(),[page])
+    function searchDoc(){
         console.log(page)
         console.log(pageNumbers)
         let stringified = "";
