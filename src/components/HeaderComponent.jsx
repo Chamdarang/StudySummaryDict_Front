@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../security/AuthContext";
-import "../css/InfoItem.scss"
+import "../scss/InfoItem.scss"
 
 
 export default function HeaderComponent(){

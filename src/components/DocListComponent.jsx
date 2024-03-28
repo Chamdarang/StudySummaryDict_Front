@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import "../css/InfoItem.scss"
+import "../scss/InfoItem.scss"
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../security/AuthContext";
 import { docSearchApi } from "../api/DocApiService";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import "../css/InfoItem.scss"
+import "../scss/InfoItem.scss"
 import { docDeleteApi, docEditApi, docSaveApi } from "../api/DocApiService"
 import {useNavigate, useParams } from "react-router-dom"
 

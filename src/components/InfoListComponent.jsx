@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import "../css/InfoItem.scss"
+import "../scss/InfoItem.scss"
 import { infoDeleteApi, infoModifyApi, infoSearchApi } from "../api/SearchApiService";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../security/AuthContext";

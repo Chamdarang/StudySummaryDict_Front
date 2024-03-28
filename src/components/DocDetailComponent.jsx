@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../css/InfoItem.scss";
+import "../scss/InfoItem.scss";
 import ReactMarkdown from "react-markdown";
 import { docViewApi } from "../api/DocApiService";
 import { Link, useParams } from "react-router-dom";

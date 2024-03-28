@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { quizApi } from "../api/SearchApiService"
-import "../css/InfoItem.scss"
+import "../scss/InfoItem.scss"
 
 export default function HomeComponent(){
     const [quiz,setQuiz]=useState([])
