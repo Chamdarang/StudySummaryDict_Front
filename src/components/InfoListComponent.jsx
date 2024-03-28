@@ -122,21 +122,21 @@ export default function InfoListComponent(){
         <>
         <ul className="list-group mx-auto custom-w-50"> 
         {isAuth&&
-            <span className="list-group-item border m-2">
+            <span className="list-group-item rounded-0 m-2">
             <label></label>
             <form className="row">
                 <input type="hidden" value={id}/>
-                <div className="col-10 col-sm">
+                <div className="col">
                     <input className="form-control mt-1" type="text" placeholder="Name" value={name} onChange={handleNameChange}  required/>
                     <textarea className="form-control mt-1" value={simpleInfo} onChange={handleSimpleInfoChange} placeholder="Information" required/>
-                    <div className="tags form-control mt-1">
+                    <div className="tags form-control mt-1 mb-2">
                         {tags.map((tag,idx) => (
                             <span key={idx} className="tag btn btn-outline-danger" onClick={()=>deleteTag(tag)}>{tag} ✕</span>
                         ))}
                         <input type="text" value={tagItem} className="border-0" placeholder="Enter tags" onChange={handleTagItemChange} onBlur={onFocusOut} onKeyUp={onKeyUp}/>
                     </div>
                 </div>
-                <div className="col-1">
+                <div className="col-sm-1">
                     <button type="submit" className="btn btn-sm btn-outline-primary m-1" onClick={handleSubmit}>추가</button>
                 </div>
             </form>
@@ -145,14 +145,14 @@ export default function InfoListComponent(){
             {
                 info.map(
                     info=>(
-                        <li key={info.id} className="list-group-item border m-2 ">
+                        <li key={info.id} className="list-group-item border rounded-0 m-2 ">
                             <div className="row">
-                                <div className="col-10 col-sm">
+                                <div className="col">
                                     <div className="fs-4 fw-bold mb-1">
                                         <span>{info.name}</span>
                                     </div>
                                     <div className="text-pre">{info.simpleInfo}</div>
-                                    <div className="text-pre">
+                                    <div className="text-pre mb-2">
                                         {info.tag.map(
                                             (tag,idx)=>(
                                                 <button type="button" className="tag-sm" key={tag} value={tag} >{tag}</button>
@@ -160,7 +160,7 @@ export default function InfoListComponent(){
                                         )}
                                     </div>
                                 </div>
-                                {isAuth&&<div className="col-1">
+                                {isAuth&&<div className="col-sm-1">
                                         <button className="btn btn-sm btn-outline-primary m-1" onClick={()=>setUpdateInfo(info)}>수정</button>
                                         <button className="btn btn-sm btn-outline-danger m-1" onClick={()=>deleteInfo(info.id)}>삭제</button>
                                 </div>}

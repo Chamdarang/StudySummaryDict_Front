@@ -8,8 +8,7 @@ export default function DocModifyComponent(){
     const [title,setTitle]=useState("")
     const [content,setContent]=useState("")
     const nav=useNavigate()
-    
-    useEffect(()=>initDocDetail(),[])
+    useEffect(()=>initDocDetail(),[id])
     function initDocDetail(){
         if (id) {
             console.log(id)
@@ -26,8 +25,6 @@ export default function DocModifyComponent(){
             console.log("new")
         }
     }
-    console.log(id)
-    console.log("edit")
     function handleTitleChange(e){
         setTitle(e.target.value)
     }
@@ -47,18 +44,18 @@ export default function DocModifyComponent(){
     }
     return(
         <div className="mx-auto custom-w-50"> 
-        <span className="list-group-item border m-2">
-            <form className=" row">
-                <input type="hidden" value={id}/>
-                <div className="col-10 col-sm">
-                    <input className="form-control mt-1" type="text" placeholder="Title" value={title} onChange={handleTitleChange}  required/>
-                    <textarea className="form-control mt-1" style={{height:"80vh"}} value={content} onChange={handleContentChange} placeholder="Information" required/>
-                </div>
-                <div className="col-1">
-                    <button type="submit" className="btn btn-sm btn-outline-primary m-1" onClick={handleSubmit}>{id?"수정":"작성"}</button>
-                    <button type="button" className="btn btn-sm btn-outline-primary m-1" onClick={delDoc}>삭제</button>
-                </div>
-            </form>
+            <span className="list-group-item  m-2">
+                <form className=" row">
+                    <input type="hidden" value={id}/>
+                    <div className="col-sm-10">
+                        <input className="form-control mt-1" type="text" placeholder="Title" value={title} onChange={handleTitleChange}  required/>
+                        <textarea className="form-control mt-1" style={{height:"80vh"}} value={content} onChange={handleContentChange} placeholder="Contents" required/>
+                    </div>
+                    <div className="col-sm">
+                        <button type="submit" className="btn btn-sm btn-outline-primary m-1" onClick={handleSubmit}>{id?"수정":"작성"}</button>
+                        <button type="button" className="btn btn-sm btn-outline-primary m-1" onClick={delDoc}>삭제</button>
+                    </div>
+                </form>
             </span>
         </div>
     )

@@ -34,11 +34,14 @@ export default function HomeComponent(){
         <div className="list-group mx-auto custom-w-50"> 
                 {quiz.map(
                     (quizItem,idx)=>(
-                        <span className={quizItem.correct==1?"border-success mb-2 form-control":quizItem.correct==-1?"border-danger mb-2 form-control ":"mb-2 form-control"} key={idx}>
-                        {quizItem.correct!=1?<input name={idx} type="text" className="border " placeholder={quizItem.name.replaceAll(/[가-힣\w]/g,"○")} value={quizItem.userAnswer} onChange={handleAnswerChange} onBlur={judgeQuiz} onKeyUp={judgeQuiz} readOnly={quizItem.correct==1?true:false}/>:
-                        <div className="h6 fs-4 fw-bold">{quizItem.name}</div>}
-                        <div className="text-pre" >{quizItem.simpleInfo}</div>
-                        </span>
+                        <>
+                            <li className={"list-group-item border rounded-0 m-2 "+(quizItem.correct==1?"border-success":quizItem.correct?"border-danger":"")} key={idx}>
+                            {quizItem.correct!=1?<input name={idx} type="text" className="border " placeholder={quizItem.name.replaceAll(/[가-힣\w]/g,"○")} value={quizItem.userAnswer} onChange={handleAnswerChange} onBlur={judgeQuiz} onKeyUp={judgeQuiz} readOnly={quizItem.correct==1?true:false}/>:
+                            <div className="h6 fs-4 fw-bold">{quizItem.name}</div>}
+                            <div className="text-pre" >{quizItem.simpleInfo}</div>
+                            </li>
+                        
+                        </>
                     )
                 )}
                 <button className="btn btn-sm btn-outline-primary m-1" onClick={updateQuiz}>새로 가져오기</button>

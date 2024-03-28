@@ -42,7 +42,7 @@ export default function DocListComponent(){
             {
                 doc.map(
                     doc=>(
-                        <li key={doc.id} className="list-group-item border m-2 ">
+                        <li key={doc.id} className="list-group-item border rounded-0 m-2 ">
                             <div className="row">
                                 <div className="col-10 col-sm">
                                     <div className="mb-1">
