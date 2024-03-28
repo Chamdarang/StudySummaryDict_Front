@@ -7,6 +7,8 @@ import rehypeRaw from "rehype-raw";
 import { useAuth } from "../security/AuthContext";
 export default function DocDetailComponent() {
   const { id } = useParams();
+  console.log(id)
+  console.log("view")
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const authContext=useAuth()

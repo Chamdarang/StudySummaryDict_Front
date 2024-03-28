@@ -8,7 +8,7 @@ export default function DocModifyComponent(){
     const [title,setTitle]=useState("")
     const [content,setContent]=useState("")
     const nav=useNavigate()
-
+    
     useEffect(()=>initDocDetail,[])
     function initDocDetail(){
         if (id) {
@@ -23,8 +23,11 @@ export default function DocModifyComponent(){
                 console.log("?")
             })
         }else{
+            console.log("new")
         }
     }
+    console.log(id)
+    console.log("edit")
     function handleTitleChange(e){
         setTitle(e.target.value)
     }
