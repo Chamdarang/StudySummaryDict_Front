@@ -10,7 +10,7 @@ export default function HeaderComponent(){
     const authContext=useAuth()
 
     function handleSubmit(e){
-        if (query=="Chamdarango"){
+        if (query==process.env.REACT_APP_UNLOCK_FUNCTION_KEY){
             authContext.setAuth()
             setQuery("")
             e.preventDefault();

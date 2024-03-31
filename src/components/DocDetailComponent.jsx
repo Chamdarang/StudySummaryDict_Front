@@ -11,19 +11,19 @@ export default function DocDetailComponent() {
   const [content, setContent] = useState("");
   const authContext=useAuth()
   const isAuth=authContext.isAuth
-  useEffect(() => initDocDetail(), [id]);
+  useEffect(() => initDocDetail(),[]);
   function initDocDetail() {
     docViewApi(id)
       .then((response) => {
-        console.log(response.data.data);
         setTitle(response.data.data.doc.title);
         setContent(response.data.data.doc.content);
       })
       .catch((error) => {
+        console.log(error);
         console.log("?");
       })
-      .finally(
-        console.log(content) 
+      .finally( 
+        console.log(content)  
       );
   }
   return (
