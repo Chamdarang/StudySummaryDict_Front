@@ -5,7 +5,6 @@ import { docViewApi } from "../api/DocApiService";
 import { Link, useParams } from "react-router-dom";
 import rehypeRaw from "rehype-raw";
 import { useAuth } from "../security/AuthContext";
-import remarkGfm from "remark-gfm";
 export default function DocDetailComponent() {
   const { id } = useParams();
   const [title, setTitle] = useState("");
