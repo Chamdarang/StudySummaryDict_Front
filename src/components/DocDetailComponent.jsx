@@ -5,6 +5,7 @@ import { docViewApi } from "../api/DocApiService";
 import { Link, useParams } from "react-router-dom";
 import rehypeRaw from "rehype-raw";
 import { useAuth } from "../security/AuthContext";
+import remarkGfm from "remark-gfm";
 export default function DocDetailComponent() {
   const { id } = useParams();
   const [title, setTitle] = useState("");
@@ -13,17 +14,18 @@ export default function DocDetailComponent() {
   const isAuth=authContext.isAuth
   useEffect(() => initDocDetail(), [id]);
   function initDocDetail() {
-    console.log(id);
     docViewApi(id)
       .then((response) => {
         console.log(response.data.data);
         setTitle(response.data.data.doc.title);
         setContent(response.data.data.doc.content);
-        console.log(content)
       })
       .catch((error) => {
         console.log("?");
-      });
+      })
+      .finally(
+        console.log(content) 
+      );
   }
   return (
     <div className="mx-auto custom-w-50"> 

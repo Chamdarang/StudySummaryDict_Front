@@ -32,11 +32,18 @@ export default function DocModifyComponent(){
         setContent(e.target.value)
     }
     function handleSubmit(e){
-        
-        docSaveApi({id:id?id:-1,title:title,content:content})
         console.log({id:id?id:-1,title:title,content:content})
         e.preventDefault()
-        nav(`/d`)
+        docSaveApi({id:id?id:-1,title:title,content:content})
+        .then(response=>{
+                nav(`/d/v/${response.data.data.id}`)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+
+        
+        
     }
     function delDoc(){
         docDeleteApi({id:id})
