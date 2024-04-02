@@ -6,7 +6,7 @@ import { docSearchApi } from "../api/DocApiService";
 export default function DocListComponent(){
     const [doc,setDoc]=useState([])
     const [page,setPage]=useState(0)
-    const [size,setSize]=useState(10)
+    const [size,setSize]=useState(15)
     const [totalPage,setTotalPage]=useState(0)
     const pageStrat=Math.max(0,page-5)
     const pageEnd=Math.min(totalPage,page+5)

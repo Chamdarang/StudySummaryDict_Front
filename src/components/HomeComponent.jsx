@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import {useEffect, useRef, useState } from "react"
 import { quizApi } from "../api/SearchApiService"
 import "../scss/InfoItem.scss"
 
 export default function HomeComponent(){
     const [quiz,setQuiz]=useState([])
+    const inputRef = useRef(null);
     useEffect(()=>updateQuiz(),[])
     function updateQuiz(){
         quizApi()
@@ -11,6 +12,7 @@ export default function HomeComponent(){
             console.log(response.data.data)
             setQuiz(response.data.data.quizList)
             console.log("!")
+            inputRef.current.focus();
         })
         .catch(error=>{
             console.log("?")
@@ -27,7 +29,6 @@ export default function HomeComponent(){
     function handleAnswerChange(e){
         quiz[e.target.name].userAnswer=e.target.value
         setQuiz([...quiz])
-        
     }
     return(
         <>
@@ -35,8 +36,8 @@ export default function HomeComponent(){
                 {quiz.map(
                     (quizItem,idx)=>(
                         <>
-                            <li className={"list-group-item border rounded-0 m-2 "+(quizItem.correct==1?"border-success":quizItem.correct?"border-danger":"")} key={idx}>
-                            {quizItem.correct!=1?<input name={idx} type="text" className="border " placeholder={quizItem.name.replaceAll(/[가-힣\w]/g,"○")} value={quizItem.userAnswer} onChange={handleAnswerChange} onBlur={judgeQuiz} onKeyUp={judgeQuiz} readOnly={quizItem.correct==1?true:false}/>:
+                            <li className={"list-group-item border rounded-0 m-2 "+(quizItem.correct==1?"border-success":quizItem.correct?"border-danger":"")}  key={idx}>
+                            {quizItem.correct!=1?<input name={idx} type="text" className="border " placeholder={quizItem.name.replaceAll(/[가-힣\w]/g,"○")} ref={(element)=>{if(idx==0)inputRef.current=element} }value={quizItem.userAnswer} onChange={handleAnswerChange} onBlur={judgeQuiz} onKeyUp={judgeQuiz}/>:
                             <div className="h6 fs-4 fw-bold">{quizItem.name}</div>}
                             <div className="text-pre" >{quizItem.simpleInfo}</div>
                             </li>

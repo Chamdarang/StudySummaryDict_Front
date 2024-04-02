@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import "../scss/InfoItem.scss"
 import { infoDeleteApi, infoModifyApi, infoSearchApi } from "../api/SearchApiService";
 import { useLocation } from "react-router-dom";
@@ -11,7 +11,7 @@ export default function InfoListComponent(){
     const [tags,setTags]=useState([])
     const [tagItem,setTagItem]=useState("")
     const [page,setPage]=useState(0)
-    const [size,setSize]=useState(10)
+    const [size,setSize]=useState(15)
     const [totalPage,setTotalPage]=useState(0)
     const pageStrat=Math.max(0,page-5)
     const pageEnd=Math.min(totalPage,page+5)
@@ -19,6 +19,7 @@ export default function InfoListComponent(){
     const param=useLocation().search
     const authContext=useAuth()
     const isAuth=authContext.isAuth
+    const inputRef = useRef(null);
     useEffect(()=>searchInfo(),[page])
     function searchInfo(){
         console.log(page)
@@ -39,6 +40,9 @@ export default function InfoListComponent(){
         })
     }
     function deleteInfo(id){
+        if(!window.confirm('삭제 확인')){
+            return false;
+        }
         infoDeleteApi({id:id})
         .then(()=>{
             setInfo(info.filter(infoItem => infoItem.id != id))
@@ -55,6 +59,7 @@ export default function InfoListComponent(){
         setSimpleInfo(info.simpleInfo)
         setTags(info.tag)
         setTagItem("")
+        inputRef.current.focus()
     }
     function deleteTag(tag){
         setTags(tags.filter(tagItem => tagItem !== tag))
@@ -88,6 +93,13 @@ export default function InfoListComponent(){
             setTags(newTags)
             setTagItem("")
         }
+    }
+    function handleClear(){
+        setName("")
+        setTags([])
+        setTagItem("")
+        setSimpleInfo("")
+        setId(-1)
     }
     function handleSubmit(e){
         
@@ -127,8 +139,8 @@ export default function InfoListComponent(){
             <form className="row">
                 <input type="hidden" value={id}/>
                 <div className="col">
-                    <input className="form-control mt-1" type="text" placeholder="Name" value={name} onChange={handleNameChange}  required/>
-                    <textarea className="form-control mt-1" value={simpleInfo} onChange={handleSimpleInfoChange} placeholder="Information" required/>
+                    <input className="form-control mt-1" type="text" placeholder="Name" ref={inputRef} value={name} onChange={handleNameChange}  required/>
+                    <textarea className="form-control mt-1"  value={simpleInfo} onChange={handleSimpleInfoChange} placeholder="Information" required/>
                     <div className="tags form-control mt-1 mb-2">
                         {tags.map((tag,idx) => (
                             <span key={idx} className="tag btn btn-outline-danger" onClick={()=>deleteTag(tag)}>{tag} ✕</span>
@@ -138,6 +150,7 @@ export default function InfoListComponent(){
                 </div>
                 <div className="col-sm-1">
                     <button type="submit" className="btn btn-sm btn-outline-primary m-1" onClick={handleSubmit}>추가</button>
+                    <button type="button" className="btn btn-sm btn-outline-secondary m-1" onClick={handleClear}>비우기</button>
                 </div>
             </form>
             </span>

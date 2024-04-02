@@ -46,6 +46,9 @@ export default function DocModifyComponent(){
         
     }
     function delDoc(){
+        if(!window.confirm('삭제 확인')){
+            return false;
+        }
         docDeleteApi({id:id})
         nav(`/d`)
     }
