@@ -61,11 +61,11 @@ export default function DocListComponent(){
             }
         </ul>
         <div className="mx-auto w-50 text-center">
-            {page>0 &&<span key={-1} onClick={()=>onPageChange(page-1)}>Previous</span>}
+            {page>0 &&<span key={-1} style={{cursor:"pointer"}} onClick={()=>onPageChange(page-1)}>Previous</span>}
             {pageNumbers.map(paging=>
-            page==paging?<span key={paging} className="fw-bold p-1" onClick={()=>onPageChange(paging)}>{paging+1}</span> :<span key={paging} className="p-1" onClick={()=>onPageChange(paging)}>{paging+1}</span>
+            page==paging?<span key={paging} className="fw-bold p-1">{paging+1}</span> :<span key={paging} className="p-1" style={{cursor:"pointer"}} onClick={()=>onPageChange(paging)}>{paging+1}</span>
             )}
-            {page<totalPage-1 &&<span key={+1} onClick={()=>onPageChange(page+1)}>Next</span>}
+            {page<totalPage-1 &&<span key={+1} style={{cursor:"pointer"}} onClick={()=>onPageChange(page+1)}>Next</span>}
         </div>
         </> 
     );

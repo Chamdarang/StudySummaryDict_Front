@@ -8,10 +8,8 @@ export default function HeaderComponent(){
     const nav= useNavigate()
     const [query,setQuery]=useState("");
     const authContext=useAuth()
-
     function handleSubmit(e){
-        if (query==process.env.REACT_APP_UNLOCK_FUNCTION_KEY){
-            authContext.setAuth()
+        if (authContext.unlockFunction(query)){
             setQuery("")
             e.preventDefault();
         }else{
